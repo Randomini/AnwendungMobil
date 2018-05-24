@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Xml.Serialization;
+using System.Threading.Tasks;
+using System.Xml;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -24,16 +26,31 @@ namespace DonationStation
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public class ClassInstListe : List<Institution> { }
-        List<Institution> liste = new ClassInstListe();
+        //public class ClassInstListe : List<Institution> { }
+        //static ClassInstListe liste = new ClassInstListe();
+        //List<Institution> liste = new ClassInstListe();
+        static List<Institution> liste = new List<Institution> { };
+        public const string datei = "D:\\InstiData17.xml";
 
-        static XmlSerializer serializer;
+        //  static XmlSerializer serializer;
+        static XmlSerializer serializer = new XmlSerializer(typeof(List<Institution>));
         static FileStream stream;
 
-        public static ClassInstListe DeserializeObject()
+        public static async Task<List<Institution>> DeserializeObject()
+
         {
-            stream = new FileStream(@"InstiData17.xml", FileMode.Open);
-            return (ClassInstListe)serializer.Deserialize(stream);
+            List<Institution> tmp = new List<Institution>();
+            await Task.Run(() =>
+            {
+
+                stream = new FileStream(@"D:\InstiData17.xml", FileMode.Open);
+
+                //liste = (ClassInstListe)serializer.Deserialize(stream);
+                List<Institution> liste = new List<Institution>((IEnumerable<Institution>)serializer.Deserialize(stream));
+                stream.Dispose();
+                return;
+            });
+            return liste;
         }
 
 
@@ -42,18 +59,23 @@ namespace DonationStation
         {
             this.InitializeComponent();
 
-            liste = App.ReadXML<List<Institution>>();
+            liste = Storagehelper.ReadXML(datei).Result;
+            //Storagehelper.ReadXML("InstiData17.xml");
+
 
         }
 
-      
 
-       
+
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
+
             foreach (Institution tmpinst in liste)
             {
+                
                 textBlock.Text += tmpinst.Name;
                 textBlock.Text += tmpinst.Arbeit;
             }

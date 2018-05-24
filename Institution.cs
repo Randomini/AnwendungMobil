@@ -19,15 +19,15 @@ namespace DonationStation
         public string Konto { get; set; }
 
 
-        public Institution(string name, string arbeit, string länder, string tätigkeit, string dzi, string finanzen, string konto)
+        public Institution()
         {
-            Name = name;
-            Arbeit = arbeit;
-            Länder = länder;
-            Tätigkeit = tätigkeit;
-            Dzi = dzi;
-            Finanzen = finanzen;
-            Konto = konto;
+            Name = "Name";
+            Arbeit = "ArbeitsSchwerpunkte";
+            Länder = "Laender";
+            Tätigkeit = "Taetigkeit";
+            Dzi = "Dzi";
+            Finanzen = "Anteil" ;
+            Konto = "SpendenKonto";
         }
 
     }

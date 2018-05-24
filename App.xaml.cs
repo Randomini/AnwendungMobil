@@ -25,9 +25,9 @@ namespace DonationStation
     /// </summary>
     sealed partial class App : Application
     {
-        public static async Task<List<Institution>> ReadXML<Institution>(string datei)
+      /*  public static async Task<List<Institution>> ReadXML<Institution>(string datei)
         {
-            var file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"InstiData17.xml");
+            var file = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"C:\Users\Luca\source\repos\DonationStation\DonationStation\Assets\InstiData17.xml");
             var stream = await file.OpenReadAsync();
             var rdr = new StreamReader(stream.AsStream());
             var contents = await rdr.ReadToEndAsync();
@@ -38,7 +38,7 @@ namespace DonationStation
             return daten;
 
             
-        } 
+        } */
         
 
         /// <summary>

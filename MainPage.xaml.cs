@@ -30,29 +30,11 @@ namespace DonationStation
         //static ClassInstListe liste = new ClassInstListe();
         //List<Institution> liste = new ClassInstListe();
         static List<Institution> liste = new List<Institution> { };
-        public const string datei = "D:\\InstiData17.xml";
+        public const string datei = @"Assets\InstiData17.xml";
 
         //  static XmlSerializer serializer;
         static XmlSerializer serializer = new XmlSerializer(typeof(List<Institution>));
         static FileStream stream;
-
-        public static async Task<List<Institution>> DeserializeObject()
-
-        {
-            List<Institution> tmp = new List<Institution>();
-            await Task.Run(() =>
-            {
-
-                stream = new FileStream(@"D:\InstiData17.xml", FileMode.Open);
-
-                //liste = (ClassInstListe)serializer.Deserialize(stream);
-                List<Institution> liste = new List<Institution>((IEnumerable<Institution>)serializer.Deserialize(stream));
-                stream.Dispose();
-                return;
-            });
-            return liste;
-        }
-
 
 
         public MainPage()
@@ -64,10 +46,6 @@ namespace DonationStation
 
 
         }
-
-
-
-
 
         private void button_Click(object sender, RoutedEventArgs e)
         {

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2018
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationStation", "DonationStation\DonationStation.csproj", "{FD64E308-4990-428C-9049-E7BDF33E4C88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationStation", "DonationStation.csproj", "{FD64E308-4990-428C-9049-E7BDF33E4C88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +38,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {76CD6290-56B1-49C5-AEA8-853167634DB6}
+		SolutionGuid = {9A63EB76-6AB4-4D0D-8D76-3B3C7275F692}
 	EndGlobalSection
 EndGlobal
